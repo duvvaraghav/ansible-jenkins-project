@@ -1,0 +1,50 @@
+server and client
+sudo apt-get update
+#java installation
+sudo apt-get install default-jre -y
+sudo apt-get install default-jdk -y
+#jenkins installation setup-server
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+sudo apt-get update
+sudo apt-get install jenkins -y
+#ssh connection setup
+server root dir
+ssh-keygen
+sudo cp pub key paste client authorized_keys
+client setup
+ssh-keygen
+server connection to client
+ssh ubuntu@ipaddress
+
+# ansible setup client
+server 
+sudo apt-get update
+sudo apt-get install python-pip python-dev python-apt -y
+sudo apt-get install ansible -y
+ssh-keygen
+sudo cp pub key paste client authorized_keys
+
+#client
+sudo apt-get update
+sudo apt-get install python-pip python-dev python-apt -y
+ssh-keygen
+# server
+ssh ubuntu@ipaddress
+cd /etc/ansible
+sudo nano hosts
+specified client address
+[node]
+ipaddress
+ansible host test
+ansible node -m ping
+result is pong
+
+
+
+
+
+
+
+
+

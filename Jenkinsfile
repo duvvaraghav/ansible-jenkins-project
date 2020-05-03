@@ -9,7 +9,7 @@ pipeline {
                 sh '''
                    cd /home/ubuntu/playbook
                    pwd
-                   ansible node -m ping
+                   sudo ansible node -m ping
                 '''
             }
         }

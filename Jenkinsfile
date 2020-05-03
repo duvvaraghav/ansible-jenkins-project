@@ -5,13 +5,28 @@ pipeline {
         stage('Build') {
             agent { label 'slave' }
             steps {
-                echo 'Building..'
+                echo 'jenkins_ansible_integrationsetup..'
                 sh '''
-                   pwd
-                   ansible node -m ping
-                   ansible-playbook deploy.yaml
                 '''
             }
         }
+        stage('TEST') {
+            agent { label 'slave' }
+            steps {
+                echo 'host checking..'
+                sh '''
+                   ansible node -m ping
+                '''
+            }
+        }
+        stage('DEPLOY') {
+            agent { label 'slave' }
+            steps {
+                echo 'deploying..'
+                sh '''
+                   ansible-playbook deploy.yaml
+                '''
+            }
+        }       
     }    
 }

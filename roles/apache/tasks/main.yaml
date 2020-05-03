@@ -1,0 +1,23 @@
+- name: apache2_inatall
+  apt:
+    name: apache2
+    state: present
+
+- file:
+    path: /var/www/html/index.html
+    state: absent
+
+- name: deploy_code
+  copy:
+     src: /home/ubuntu/playbook/roles/apache/files/index.html
+     dest: /var/www/html/
+- name: pakg
+  apt:
+    name: "{{packg_cmd}}"
+    state: present
+- name: copy template
+  template:
+    src: /home/ubuntu/playbook/roles/apache/templates/hello.html.j2
+    dest: /var/www/html/
+  notify:
+  - restart_apache2

@@ -7,7 +7,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''
-                   cd /home/ubuntu/
+                   cd /home/ubuntu/playbook
                    pwd
                    ansible node -m ping
                 '''

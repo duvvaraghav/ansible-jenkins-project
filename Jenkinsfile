@@ -9,6 +9,7 @@ pipeline {
                 sh '''
                    pwd
                    ansible node -m ping
+                   ansible-playbook deploy.yaml
                 '''
             }
         }

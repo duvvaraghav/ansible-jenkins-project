@@ -1,0 +1,11 @@
+--- #configuration setup
+- hosts: node
+  remote_user: ubuntu
+  connection: ssh
+  gather_facts: yes
+  sudo: yes
+
+
+  roles:
+  - apache
+  - common_packages

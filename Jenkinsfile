@@ -40,6 +40,7 @@ pipeline {
                 notifyEveryUnstableBuild: true,
                 recipients: "duvva.raghavendra@gmail.com",
                 sendToIndividuals: true])
-        }
-    }       
+              }
+         }       
+    }
 }

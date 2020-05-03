@@ -7,9 +7,8 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''
-                   cd /home/ubuntu/playbook
                    pwd
-                   sudo ansible node -m ping
+                   ansible node -m ping
                 '''
             }
         }
